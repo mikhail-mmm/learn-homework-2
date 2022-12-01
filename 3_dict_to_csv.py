@@ -10,12 +10,21 @@
 
 """
 
+import csv
+
+people = [
+    {'name': 'Евгений', 'age': '33', 'job': 'Engineer'},
+    {'name': 'Роман', 'age': '25', 'job': 'Researcher'},
+    {'name': 'Василий', 'age': '40', 'job': 'Technician'},
+    {'name': 'Николай', 'age': '55', 'job': 'Head of Department'},
+    {'name': 'Ярослав', 'age': '30', 'job': 'Programmer'}
+]
+
 def main():
-    """
-    Эта функция вызывается автоматически при запуске скрипта в консоли
-    В ней надо заменить pass на ваш код
-    """
-    pass
+    with open('people.csv', 'w', encoding='utf-8') as f:
+        writer = csv.DictWriter(f, delimiter = ";", lineterminator="\r", fieldnames=['name', 'age', 'job'])
+        writer.writeheader()
+        writer.writerows(people)
 
 if __name__ == "__main__":
     main()
