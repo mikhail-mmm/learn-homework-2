@@ -8,20 +8,18 @@
 
 """
 
+import datetime as dt
+
 def print_days():
-    """
-    Эта функция вызывается автоматически при запуске скрипта в консоли
-    В ней надо заменить pass на ваш код
-    """
-    pass
+    today = dt.date.today().strftime("%d.%m.%Y")
+    yesterday = (dt.date.today() - dt.timedelta(days=1)).strftime("%d.%m.%Y")
+    past_date = (dt.date.today() - dt.timedelta(days=30)).strftime("%d.%m.%Y")
+    print(f'Today: {today}.\nYesterday: {yesterday}.\n30 days ago: {past_date}')
 
 
 def str_2_datetime(date_string):
-    """
-    Эта функция вызывается автоматически при запуске скрипта в консоли
-    В ней надо заменить pass на ваш код
-    """
-    pass
+    date_obj = dt.datetime.strptime(date_string, '%d/%m/%y %H:%M:%S.%f')
+    return date_obj
 
 if __name__ == "__main__":
     print_days()
